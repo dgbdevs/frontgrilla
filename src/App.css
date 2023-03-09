@@ -1,0 +1,35 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.App{
+
+display: flex;
+justify-content: center;
+align-items: center;
+
+
+}
+.card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.day{
+  width: 200px;
+  height: 200px;
+  display: flex;
+  margin:10px;
+  flex-direction: column;
+  background-color: black;
+  border-radius: 50%;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+  border: dotted 5px #CCC;
+}
