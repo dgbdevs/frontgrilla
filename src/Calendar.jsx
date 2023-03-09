@@ -601,6 +601,19 @@ const Calendar = ({ usuario }) => {
     }
 
 
+    const getMonth = () =>{
+        let date =new Date()
+        let d = date.toDateString()
+        setMonth(d.slice(4,7))
+
+    }
+    useEffect(() => {
+      getMonth()
+    
+      
+    }, [])
+    
+
     const getLaborableDays = async (m) => {
 
         await fetch(`https://servergrilla-production.up.railway.app/${m}`)
@@ -694,7 +707,7 @@ const Calendar = ({ usuario }) => {
     return (
 
         <div className="calendar-wrapper">
-            <select onChange={(e) => setMonth(e.target.value)}>
+            <select value={month} onChange={(e) => setMonth(e.target.value)}>
                 <option value={'Jan'}>Enero</option>
                 <option value={'Feb'}>Febrero</option>
                 <option value={'Mar'}>Marzo</option>
@@ -718,6 +731,7 @@ const Calendar = ({ usuario }) => {
                 <div style={{display:'flex', margin:'5px'}}><div style={{width:'30px', margin:'0px 5px', height:'20px', backgroundColor:'#6300AC'}}></div>TURNO NOCHE</div>
                 <div style={{display:'flex', margin:'5px'}}><div style={{width:'30px', margin:'0px 5px', height:'20px', backgroundColor:'#00A10A'}}></div>TURNO INTERMEDIO</div>
                 <div style={{display:'flex', margin:'5px'}}><div style={{width:'30px', margin:'0px 5px', height:'20px', backgroundColor:'#8A8A8A'}}></div>FRANCO</div>
+                Los colores oscuros corresponden a los dias presenciales
                 
             </div>
         </div>

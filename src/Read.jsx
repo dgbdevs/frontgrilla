@@ -10,10 +10,16 @@ const Read = () => {
     const [month, setMonth] = useState('Enero')
 
     const obtenerDatos = async () => {
-        await fetch(`https://servergrilla-production.up.railway.app/${dd.slice(4, 7)}`)
+        var requestOptions = {
+            method: 'GET',
+            redirect: 'follow',
+            mode:'cors',
+          };
+          
+          await fetch(`https://servergrilla-production.up.railway.app/${dd.slice(4,7)}`, requestOptions)
             .then(response => response.json())
             .then(data => setDatos(data))
-            .then(console.log(datos))
+            .catch(error => console.log('error', error));
     }
 
     const searchToday = () => {
@@ -117,8 +123,8 @@ const Read = () => {
 
         <div className='card'>
             <div>
-                <input value={search} onChange={(e) => setSearch(e.target.value)}></input>
-                <button onClick={() => mostrarUser()}>Read</button>
+                <input placeholder='Ingrese su legajo' value={search} onChange={(e) => setSearch(e.target.value)}></input>
+                <button onClick={() => mostrarUser()}>Buscar</button>
             </div>
 
             {usuario ?
